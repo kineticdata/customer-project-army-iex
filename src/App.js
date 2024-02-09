@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Link, Route, Switch, Redirect } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import { WallySpinner } from './components/Loading';
 import { Login } from './components/Login';
 import { Header } from './components/Header';
+import { Homepage } from './components/Homepage';
+import { Opportunities } from './components/Opportunities';
+import { ContactUs } from './components/ContactUs';
 import { Form } from './components/Form';
 import { FormList } from './components/FormList';
 import { KappList } from './components/KappList';
 import { SubmissionList } from './components/SubmissionList';
 import { NotFound } from './components/NotFound';
 import { Profile } from './components/Profile';
+import { Users } from './components/Users';
 import { useProfile, useSpace } from './hooks';
-
-// use Wally for empty app
-export const EmptyBodyRow = () => <WallySpinner />;
+import { Footer } from './components/Footer';
 
 export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
   // breadcrumbs for navigation
@@ -30,9 +32,9 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
       <Header space={space} loggedIn={loggedIn} profile={profile} />
       {!initialized ? (
         <WallySpinner />
-      ) : loggedIn ? (
+      ) : (
         <div className="app-container">
-          <nav>
+          {/* <nav>
             <ul className="breadcrumbs">
               {breadcrumbs &&
                 breadcrumbs.map((breadcrumb, idx) => (
@@ -46,9 +48,16 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
                   </li>
                 ))}
             </ul>
-          </nav>
+          </nav> */}
           <main>
             <Switch>
+              <Route
+                path="/login"
+                render={() => (
+                  <Login {...loginProps}/>
+                )}
+                exact
+            />
               <Route
                 path="/profile"
                 render={() => (
@@ -57,7 +66,12 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
                 exact
               />
               <Route
-                path={['/', '/kapps']}
+                path="/users"
+                render={() => <Users setCrumbs={setBreadcrumbs} />}
+                exact
+              />
+              <Route
+                path={['/kapps']}
                 render={() => (
                   <KappList
                     setCrumbs={setBreadcrumbs}
@@ -68,11 +82,8 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
                 )}
                 exact
               />
-              <Route path="/kapps/:kappSlug" exact>
-                <Redirect to="forms" />
-              </Route>
               <Route
-                path="/kapps/:kappSlug/forms"
+                path={['/kapps/:kappSlug', '/kapps/:kappSlug/forms']}
                 render={() => <FormList setCrumbs={setBreadcrumbs} />}
                 exact
               />
@@ -96,13 +107,27 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
                 render={() => <Form setCrumbs={setBreadcrumbs} edit />}
                 exact
               />
+              <Route
+                path="/"
+                render={() => <Homepage/>}
+                exact
+              />
+              <Route
+                path="/opportunities"
+                render={() => <Opportunities loggedIn={loggedIn}/>}
+                exact
+              />
+              <Route
+                path="/contact-us"
+                render={() => <ContactUs/>}
+                exact
+              />
               <Route component={NotFound} />
             </Switch>
           </main>
         </div>
-      ) : (
-        <Login {...loginProps} />
       )}
+      <Footer />
       {timedOut && (
         <dialog open>
           <Login {...loginProps} />

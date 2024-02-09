@@ -1,7 +1,12 @@
+/* @font-face {
+  font-family: 'G.I.';
+  src: url('https://iex.army.mil/wp-content/uploads/2023/09/G.I.-530.woff') format('woff');
+} */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Sans;
+  font-family: 'G.I.', sans-serif;
   width: 100%;
   height: 100vh;
 }
@@ -11,16 +16,54 @@ body {
 }
 
 .app-container {
-  padding: 0 2em;
+  padding: 0;
+  margin: 0;
 }
 
 /* Header */
 header {
-  align-items: center;
+  height: 5.625rem;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  padding: 1rem;
-  background-color: #f36c24;
+  background-color: #4B4F58;
+}
+
+.header-centered {
+  display: flex;
+  justify-content: space-between;
+  width: 1340px;
+  align-items: center;
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-link {
+  margin: 0;
+  padding: 1.25rem;
+  text-decoration: none;
+  font-size: .875rem;
+}
+
+.header-logo-link {
+  align-self: center;
+  padding: 0 .75rem 0 0;
+  text-decoration: none;
+  font-size: 1.375rem;
+}
+
+.header-title {
+  color: white;
+  font-size: 2.1875rem;
+  text-decoration: none;
 }
 
 .header-title-container {
@@ -36,7 +79,7 @@ header {
 
 header h1 {
   color: white;
-  font-size: 1.25rem;
+  font-size: 2.1875rem;
 }
 
 header a {
@@ -49,8 +92,8 @@ header .buttons {
 }
 
 .header-logo {
-  width: 12em;
-  margin-right: 3em;
+  width: 3.75rem;
+  padding-right: 1rem;
 }
 
 .dropdown-item {
@@ -66,7 +109,7 @@ header .buttons {
 
 /* Main */
 main {
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 main a {
   color: steelblue;
@@ -83,19 +126,29 @@ main h1 {
 }
 
 /* Fields */
-input[type='text'],
-input[type='password'],
-select {
+.form-group[data-element-type],
+.checkbox[data-element-type],
+.radio[data-element-type],
+.field {
+  margin-bottom: 1rem;
+}
+input[data-element-type][type='text'],
+input[data-element-type][type='password'],
+select[data-element-type],
+textarea[data-element-type],
+.field > input,
+.field > select,
+.field > textarea {
   width: 15rem;
   padding: 1rem 1.25rem;
-  margin: 0.5rem;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-button {
+button[data-element-type],
+button.btn {
   min-width: 5rem;
   padding: 1rem 1.25rem;
   margin: 0.5rem;
@@ -104,7 +157,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button[data-element-type]:hover,
+button.btn:hover {
   background-color: rgb(54, 55, 56);
   color: white;
 }
@@ -147,11 +201,6 @@ th {
   background-color: white;
   text-align: left;
   border-bottom: 1px solid rgb(54, 55, 56);
-}
-
-.th-dark {
-  background-color: rgb(54, 55, 56);
-  color: white;
 }
 
 tr:nth-child(even) {
@@ -237,6 +286,21 @@ td {
   text-decoration: underline;
 }
 
+/* Page Information */
+.page-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4.625rem;
+  background-color: #575850;
+}
+
+.page-header-title {
+  width: 1340px;
+  color: #FFCF00;
+  font-size: 1.375rem;
+}
+
 /* Pagination */
 .pagination-buttons {
   padding: 0;
@@ -246,7 +310,86 @@ td {
   padding: 0.5em;
   margin: 0;
 }
+.pagination-text {
+  padding: 1rem;
+}
 
-.pagination-button:nth-child(2) {
-  margin-left: 1em;
+.footer-wrapper {
+  width: 100%;
+  background-color: black;
+  border-top: solid 15px #333d33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .footer-content {
+    display: flex;
+    width: 100%;
+    max-width: 1340px;
+    color: white;
+    padding: 20px;
+    justify-content: space-evenly;
+  }
+
+  .footer-1-row-1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .army-tag {
+      margin-top: 2rem;
+    }
+  }
+
+  .footer-1-row-2 {
+    color: #ffcc00;
+  }
+
+  .footer-1-row-3 {
+    margin-top: .5rem;
+  }
+
+  .footer-1-row-4 {
+    display: flex;
+    margin: 2rem 0;
+
+    .footer-1-row-4-item {
+      color: #ffcc00;
+      margin-right: 1.7rem;
+    }
+  }
+
+  .footer-col-1 {
+    margin-right: 1rem;
+    width: 150%;
+  }
+
+  .footer-col-2 {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .footer-col-3 {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .col-header {
+    border-left: solid 2px white;
+    padding-left: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 2rem;
+  }
+
+  .col-item {
+    border-left: solid 2px white;
+    padding: .25rem 0 .25rem 1.5rem;
+  }
+
+  .copyright {
+    background-color: #111111;
+    color: #525252;
+    font-size: .75rem;
+    padding: .2rem 0;
+  }
 }
