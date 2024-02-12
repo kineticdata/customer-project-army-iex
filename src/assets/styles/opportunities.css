@@ -1,42 +1,19 @@
 /* Opportunities Page Styling */
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.centered-column {
-    max-width: 1340px;
-    width: 1340px;
-    display: flex;
-    flex-direction: column;
-}
-
-.content-container {
-  margin-top: 6.5rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: black;
-  font-size: 1.75rem;
-}
-
 .content-title {
   margin-top: 1rem;
   color: black;
-  font-size: 1.75rem;
+  font-size: 1.875rem;
 }
 
 .content-subtitle {
   color: #4B4F58;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 
 .content-title-underline {
-  margin: 20px 0 10px 0;
+  margin: 15px 0 10px 0;
   width: 96px;
-  border: 3px solid #dd9933;
+  border: 2px solid #fcb900;
 }
 
 .opportunities-container {
@@ -169,8 +146,11 @@
   line-height: 2.5rem;
 }
 
-.edit-md-btn {
+.md-buttons {
   align-self: flex-end;
+}
+
+.edit-md-btn {
   margin: .5rem 0 .5rem 0;
   padding: 10px 20px;
   border: 1px solid black;
@@ -181,4 +161,14 @@
 
 .edit-md-btn:disabled {
   background-color: #EBEBEB;
+}
+
+.cancel-md-btn {
+  align-self: flex-end;
+  margin: .5rem 0 .5rem 1rem;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 2rem;
+  background-color: red;
+  color: white;
 }

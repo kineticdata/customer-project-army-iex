@@ -39,6 +39,7 @@ export const Opportunities = ({ loggedIn }) => {
             public: true,
             }).then(({ submissions }) => {
                 setSubmission(submissions[0]);
+                setNewMarkdown(submissions[0].values['Markdown Field']);
             });
         }
     }, [editing])
@@ -263,24 +264,36 @@ export const Opportunities = ({ loggedIn }) => {
             </div>
             <div className="grey-bg">
                 <div className="centered-column">
-                    {loggedIn && (
-                        <button
-                            className="edit-md-btn"
-                            onClick={e => {
-                                if (editing === 0) {
-                                    setEditing(1);
-                                } else if (editing === 1) {
-                                    updateMarkdown(newMarkdown);
-                                }
-                            }}
-                            disabled={editing === 2 ? true : false}
-                        >
-                            {editing === 0 ? 'Edit'
-                                : editing === 1 ? 'Update'
-                                : editing === 2 ? 'Updating...'
-                                : null}
-                        </button>
-                    )}
+                    <div className="md-buttons">
+                        {loggedIn && (
+                            <button
+                                className="edit-md-btn"
+                                onClick={e => {
+                                    if (editing === 0) {
+                                        setEditing(1);
+                                    } else if (editing === 1) {
+                                        updateMarkdown(newMarkdown);
+                                    }
+                                }}
+                                disabled={editing === 2 ? true : false}
+                            >
+                                {editing === 0 ? 'Edit'
+                                    : editing === 1 ? 'Update'
+                                    : editing === 2 ? 'Updating...'
+                                    : null}
+                            </button>
+                        )}
+                        {loggedIn && editing !== 0 ? (
+                            <button
+                                className="cancel-md-btn"
+                                onClick={e => {
+                                    setEditing(0);
+                                }}
+                            >
+                                Cancel
+                            </button>
+                        ) : null}
+                    </div>
                     {submission && (
                         <Markdown
                             key={submission.updatedAt}
