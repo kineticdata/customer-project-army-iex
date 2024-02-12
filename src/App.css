@@ -13,6 +13,8 @@ body {
 
 #root {
   height: inherit;
+  background-image:url('https://iex.army.mil/wp-content/uploads/2021/07/FutureWork_Banner.jpg');
+  background-repeat: no-repeat;
 }
 
 .app-container {
