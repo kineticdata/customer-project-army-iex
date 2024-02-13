@@ -1,3 +1,140 @@
 /*
     background-image:url(https://iex.army.mil/wp-content/uploads/2021/07/FutureWork_Banner.jpg
 */
+
+.homepage-wrapper {
+    color: white;
+    
+    .opaque-overlay {
+        min-height: 630px;
+        background-color: rgba(0,0,0,0.5);
+
+        .hp-intro {
+            padding: 7rem 14.375rem 0;
+            
+            .big-yellow {
+                color: #daa506;
+                font-size: 64px;
+                margin-bottom: 20px;
+            }
+            
+            .blow-up-font-size {
+                font-size: 41px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .section-title {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .separator {    
+        width: 8%;
+        border-top-width: 4px;
+        border-top-color: #fcb900;
+        border-top-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .who-we-are {
+        color: black;
+        margin: 90px 50px;
+
+
+        .section-content {
+            margin-bottom: 10px;
+            line-height: 24px;
+        }
+
+        .who-button {
+            background-color: #f9c919;
+            border-radius: 30px;
+            border: solid 1px;
+            padding: 10px 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+        }
+    }
+
+    .top-news-wrapper {
+        color: black;
+        background-color: #f7f7f7;
+        height: 100%;
+        
+        .top-news {
+            padding: 90px 50px;
+
+            .carousel {
+                display: flex;
+                justify-content: center;
+                padding: 30px;
+
+                .carrot-wrapper {
+                    display: flex;
+                    align-items: center;
+
+                    .pointer {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .carousel-item {
+                    display: flex;
+                    margin: 0 0.5rem;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .image {
+                        max-width: 380px;
+                        max-height: 250px;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                    }
+
+                    .info-wrapper {
+                        max-width: 380px;
+                        padding: 15px 0;
+                        line-height: 24px;
+                        margin: 0 20px;
+
+                        .info-title {
+                            font-size: 20px;
+                            font-weight: 400;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+
+                        .info-date {
+                            color: #808285;
+                            padding-top: 1rem;
+                            padding-bottom: 15px;
+                        }
+
+                        .article-button {
+                            background-color: #f9c919;
+                            border-radius: 30px;
+                            border: none;
+                            padding: 10px 20px;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

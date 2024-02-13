@@ -30,9 +30,9 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
   return (
     <>
       <Header space={space} loggedIn={loggedIn} profile={profile} />
-      {!initialized ? (
+      {/* {!initialized ? (
         <WallySpinner />
-      ) : (
+      ) : ( */}
         <div className="app-container">
           {/* <nav>
             <ul className="breadcrumbs">
@@ -49,7 +49,7 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
                 ))}
             </ul>
           </nav> */}
-          <main>
+          <div>
             <Switch>
               <Route
                 path="/login"
@@ -124,9 +124,9 @@ export const App = ({ initialized, loggedIn, loginProps, timedOut }) => {
               />
               <Route component={NotFound} />
             </Switch>
-          </main>
+          </div>
         </div>
-      )}
+      {/* )} */}
       <Footer />
       {timedOut && (
         <dialog open>
