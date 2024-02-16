@@ -6,18 +6,19 @@ export const Login = ({
   onChangePassword,
   onChangeUsername,
   onLogin,
+  onSso,
   password,
   pending,
   redirect,
   username,
 }) => {
   const onSubmit = useCallback(
-    event => {
-      const redirectCallback = redirect ? () => history.push('/') : null;
+      event => {
+        const redirectCallback = redirect ? () => history.push('/') : null;
 
-      return onLogin(event, redirectCallback);
-    },
-    [onLogin, redirect],
+        return onLogin(event, redirectCallback);
+      },
+      [onLogin, redirect],
   );
 
   return (
@@ -49,6 +50,9 @@ export const Login = ({
             onClick={onSubmit}
           >
             Login
+          </button>
+          <button disabled={!onSso} type="submit" onClick={() => onSso()}>
+            Enterprise Sign On
           </button>
         </form>
       </span>
