@@ -1,4 +1,8 @@
 /* Opportunities Page Styling */
+.page-wrapper {
+  background-color: white;
+}
+
 .content-title {
   margin-top: 1rem;
   color: black;

@@ -45,7 +45,7 @@ export const Opportunities = ({ loggedIn }) => {
     }, [editing])
 
     return (
-        <>
+        <div className="page-wrapper">
             <div className="page-header">
                 <span className="page-header-title">
                     OPPORTUNITIES
@@ -304,6 +304,6 @@ export const Opportunities = ({ loggedIn }) => {
                     )}
                 </div>
             </div>
-        </>
+        </div>
     )
 }

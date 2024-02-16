@@ -4,7 +4,7 @@ import { CoreForm } from "@kineticdata/react/lib/components";
 
 export const ContactUs = () => {
     return (
-        <>
+        <div className="page-wrapper">
             <div className="page-header">
                 <span className="page-header-title">
                     CONTACT US
@@ -60,11 +60,12 @@ export const ContactUs = () => {
                             <CoreForm
                                 kapp='services'
                                 form='contact-us'
+                                public={true}
                             />
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
